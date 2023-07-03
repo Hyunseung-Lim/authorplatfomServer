@@ -19,7 +19,7 @@ def get_lucy_answer():
     try:
         response =  requests.post('https://lucydata.lgresearch.ai/get_lucy_answer', headers = {'Content-Type': 'application/json'}, data = json.dumps({'question': question, 'title': title}))
     except requests.exceptions.RequestException as e:
-        response = "Expection!! Answer Generate LLM does not work!"
+        response = {'lucy_answer': "Expection!! Answer Generate LLM does not work!"}
     return {"lucy_answer": response.json()['lucy_answer']}
 
 app = create_app()
